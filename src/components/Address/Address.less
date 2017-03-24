@@ -1,0 +1,36 @@
+.component{
+  .consignee, .mobile {
+    color: #5c6a6b;
+    font-size: 28px;
+  }
+  .mobile {
+    text-align: right;
+  }
+  :global {
+    .am-list-brief {
+      color: #858a8a;
+      font-size: 25px;
+      strong {
+        font-weight: normal;
+        color: #11ae75;
+      }
+    }
+    .am-radio-inner {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #a0a0a0;
+      border-radius: 50%;
+      background-color: #edeeee;
+      &:after {
+        border: 0;
+        background-color: #0bd38a;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.component {
+
+  //border-top: 1PX solid #cfcece;
+
+  padding: 10px 36px;
+
+  .btnPay {
+    background-color: #0bd3a6;
+    font-size: 28px;
+    color: #fff;
+    border-radius: 2PX;
+    height: 70px;
+    line-height: 70px;
+    padding: 0;
+    text-align: center;
+    &:disabled{
+      background-color: #ddd;
+    }
+  }
+  .amount {
+    font-size: 25px;
+    color: #798384;
+    strong {
+      font-weight: normal;
+      color: #0bd3a6;
+      font-size: 34px;
+      sub {
+        bottom: 0;
+        &:after {
+          content: '元';
+        }
+      }
+    }
+  }
+}

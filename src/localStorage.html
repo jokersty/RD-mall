@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>localStorage 测试</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="">
+</head>
+<body>
+<div id="root">
+  <a href="javascript:window.location.reload();">刷新页面</a>
+  <h1>下面输出本地存储的值, 正常情况下每刷新一次累加</h1>
+  <h2 id="storage"></h2>
+  <h3 style="color:#f00">Kill APP 后再试， 计数重新开始的就证明localStorage存储失败！</h3>
+</div>
+<script>
+  var a = localStorage.getItem('abc') || 0;
+  document.getElementById('storage').innerText = a;
+  localStorage.setItem('abc', Number(a) + 1);
+</script>
+</body>
+</html>

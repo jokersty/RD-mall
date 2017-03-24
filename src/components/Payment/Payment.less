@@ -1,0 +1,57 @@
+.Payment {
+  color: #323232;
+  font-size: 28px;
+  header {
+    position: relative;
+    .close {
+      position: absolute;
+      right: 40px;
+      top: 13px;
+      font-size: 55px;
+      color: #999;
+      line-height: 1;
+      &:after {
+        content: '\D7';
+        font-weight: 200;
+
+      }
+    }
+  }
+  h1 {
+    margin: 0;
+    font-size: 33px;
+    padding: 25px 0;
+    text-align: center;
+    font-weight: 400;
+  }
+  h2 {
+    margin: 0;
+    padding: 25px 30px;
+    font-size: 28px;
+    font-weight: normal;
+  }
+  main {
+    min-height: 420px;
+  }
+  footer {
+    padding: 10px 0;
+    button {
+      border-radius: 2PX;
+      font-size: 33px;
+      width: 70%;
+      height: 70px;
+      line-height: 1;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  :global {
+    .am-list-item .am-list-line .am-list-content {
+      font-size: 28px;
+    }
+  }
+}
+
+.formItem {
+  margin: 16px 0;
+}

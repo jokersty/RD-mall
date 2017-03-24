@@ -1,0 +1,48 @@
+.page {
+  font-size: 28px;
+  .area {
+    margin-left: 30px;
+    .placeholder {
+      color: #ccc;
+    }
+  }
+  :global {
+    footer {
+      padding: 50px 70px;
+      .am-button-primary {
+        font-size: 33px;
+        height: 80px;
+      }
+    }
+    .am-list {
+      margin-bottom: 16px;
+      .am-list-item {
+        .am-input-label,
+        .am-list-line .am-list-content,
+        .am-input-control input,
+        .am-textarea-control textarea {
+          font-size: 28px;
+          color: #323232;
+        }
+        .am-list-line .am-list-content {
+          label {
+            width: 136px;
+          }
+        }
+        .am-textarea-control textarea::-webkit-input-placeholder,
+        .am-input-control input::-webkit-input-placeholder {
+          font-size: 28px;
+        }
+      }
+    }
+
+  }
+}
+
+.cities {
+  :global {
+    .am-list-item .am-list-line .am-list-content {
+      font-size: 28px;
+    }
+  }
+}

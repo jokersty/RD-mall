@@ -1,0 +1,53 @@
+.grid {
+  :global {
+    .am-flexbox {
+      background-color: transparent;
+      &:after {
+        //display: none !important;
+      }
+    }
+  }
+
+}
+
+.item {
+  padding-bottom: 20px;
+  background-color: #fff;
+  &:after{
+    display: block;
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    width: 100%;
+    border-bottom: 1PX solid #ddd;
+  }
+  :global {
+    .item-icon {
+      height: 260px;
+      margin: 0 20px;
+      background-color: transparent;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+    h3, h4 {
+      margin: 0;
+      font-size: 25px;
+      text-align: center;
+      font-weight: normal;
+    }
+    h3 {
+      margin: 15px 0;
+      color: #323232;
+    }
+    h4 {
+      color: #0bd3a6;
+    }
+  }
+}

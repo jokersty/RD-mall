@@ -1,0 +1,72 @@
+.charIndexContainer {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40px;
+}
+
+.component {
+  :global {
+    .am-list .am-list-header {
+      background-color: #f6f6f6;
+      padding: 18px 30px 12px 30px;
+    }
+    .am-list-item {
+      img {
+        width: 78px;
+        height: 52px;
+        box-shadow: 0 0 1PX #ccc;
+        border-radius: 5PX;
+      }
+      .am-list-line {
+        padding-right: 57px;
+        .am-list-content {
+          font-size: 28px;
+          color: #323232;
+        }
+        .am-list-extra {
+          font-size: 25px;
+          color: #888;
+        }
+        .am-list-arrow {
+          margin-left: 20px;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+  .continents {
+    :global {
+      .am-list-item {
+
+        .am-list-line {
+
+          .am-list-arrow {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main, .continent, .country {
+  background-color: #fff;
+}
+
+.leyel2,
+.searchResult{
+  :global {
+    .am-list-item .am-list-line .am-list-arrow {
+      display: none;
+    }
+    .am-list-item .am-list-line .am-list-extra {
+      flex: 0.4;
+    }
+    .am-list-item .am-list-line .am-list-content sub {
+      bottom: 0;
+    }
+  }
+}

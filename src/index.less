@@ -1,0 +1,116 @@
+
+:global {
+  html, body, #root {
+    height: 100%;
+    background-color: #f6f6f6 !important;
+  }
+  body, button, input, textarea, h1, h2, h3, h4, h5, h6 {
+    font-family: "PingFang SC", "微软雅黑";
+  }
+  .desc-text {
+    color: #888;
+  }
+
+  .address {
+    &:after, &:before {
+      background-image: url(routes/Addresses/images/border.png);
+      background-size: 152PX 4PX;
+      background-repeat: repeat-x;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 4PX;
+      content: ' ';
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 1PX;
+    }
+    &.am-list-item.am-list-item-middle .am-list-line {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    &.am-list-item .am-list-line .am-list-brief {
+      overflow: auto;
+      text-overflow: clip;
+      white-space: normal;
+      line-height: 1.5;
+    }
+  }
+
+  body {
+    .am-list {
+      .am-list-item {
+        &.am-radio-item {
+          .am-list-line {
+            .am-list-extra {
+              .am-radio {
+                height: 100%;
+                .am-radio-inner {
+                  right: 20px;
+                  top: 50%;
+                  margin-top: -19px;
+                  width: 38px;
+                  height: 38px;
+                  border: 1px solid #a0a0a0;
+                  border-radius: 50%;
+                  background-color: #edeeee;
+                  &:after {
+                    border: 0;
+                    background-color: #0bd38a;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 50%;
+                    margin: -10px 0 0 -10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.radio-left {
+        .am-list-item {
+          &.am-radio-item {
+            padding-left: 0;
+            .am-list-line {
+              &:after {
+                left: 90px;
+              }
+              .am-list-content {
+                margin-left: 90px;
+              }
+              .am-list-extra {
+                .am-radio {
+                  .am-radio-inner {
+                    right: auto;
+                    left: 30px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .am-button-primary {
+      color: #fff;
+      background-color: #0bd3a6;
+      border-radius: 2PX;
+    }
+    .am-button-primary:after {
+      border: 1PX solid #0bd38a;
+    }
+    .am-button-primary.am-button-touchFeedback {
+      background-color: #0bd38a;
+    }
+  }
+  #inner-editor {
+    font-size: 28px;
+  }
+}

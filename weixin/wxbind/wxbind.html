@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.4, maximum-scale=0.4, minimum-scale=0.4">
+	<title>杭州络漫科技有限公司</title>
+	<script type="text/javascript">
+		var search = window.location.search + '';
+		if (search.indexOf("state=STATE") == -1) {
+            var redirectUri = encodeURIComponent(document.URL);
+			window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa02261a86e83d8d2&redirect_uri=" +redirectUri +
+					"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+		}
+	</script>
+	<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		// 回调页面
+		if (search.indexOf("code=") > -1) {
+		    var reg = /code=(.+)&state=(.+)$/;
+		    var result = search.match(reg);
+		    if (result != null) {
+		      var code = result[1];
+		      var state = result[2];
+		      localStorage.setItem("code", code);
+		      localStorage.setItem("state", state);
+		      // 请求后台获取session，该接口会返回是否已经绑定
+		      $.post("https://www.roam-tech.com/uc/services/wxmp/token", {
+		      	code:code,
+		      	state:state
+		      }).success(function (data, status) {
+		    	if (data.error_no === 0) {
+		    		localStorage.setItem("userid", data.userid);
+			    	localStorage.setItem("sessionid", data.sessionid);
+		    		var associateUsername = data.result.associated_username;
+		    		if (associateUsername) {
+		    			alert("已经绑定账户"+associateUsername);
+		    		}
+		    	} else {
+		    		alert(data.error_info);
+		    	}
+		      });
+		    } else {
+                alert("授权失败");
+			}
+		} else {
+            alert("授权失败");
+		}
+
+		function bindUser() {
+			var username = $("#username").val();
+			var password = $("#password").val();
+			if (username.length == 0 || password.length == 0) {
+				alert("请输入用户名密码");
+				return;
+			}
+			$.post("https://www.roam-tech.com/uc/services/account_associate", {
+		      	userid:localStorage.getItem("userid"),
+				sessionid:localStorage.getItem("sessionid"),
+				username:username,
+				password:password
+		      }).success(function (data, status) {
+		    	if (data.error_no === 0) {
+		    		var associateUsername = data.result.associated_username;
+		    		alert("绑定账户"+associateUsername+"成功");
+		    	} else {
+		    		alert(data.error_info);
+		    	}
+		      });
+		}
+	</script>
+	<style>
+		body,ul,li,a,span,i,p,div,h1,h2,h3,h4,h5,h6.dl,dt,dd,img,strong{ margin:0; padding:0;}
+		li{ list-style:none;}
+		a{ text-decoration:none; color:#000;}
+		img{ border:0 none; vertical-align:top;}
+		input,select{ outline:none;}
+		input,button{ cursor:pointer; -webkit-appearance:none;}
+		html{ font-size: 625%;}
+		body{ color:#000; font-size:0.24rem; font-family:"微软雅黑"; background:#f6f6f6; min-width:320px; margin:0 auto;}
+		.clearfix{ *zoom:1;} 
+		.clearfix:after{ content:"."; height:0; clear:both; visibility:hidden; display:block; font-size:0px;}
+		
+		header{ margin: 2.34rem auto 1.59rem auto;}
+		.login_logo{ display: block; width:2.7rem; height:2.7rem; margin: 0 auto;}
+		
+		.bind_content{ width:100%; height: auto; background: #fff; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; margin-bottom: 1.07rem;}
+		.bind_usename{}
+		.usename_icon{ display: inline-block; float:left; background: url(image/reg_username.png) no-repeat top left; background-size: 100% 100%; width:0.9rem; height:0.9rem;}
+		.useinfo_input{ display: inline-block; float:left; outline:none; width:8rem; height:0.9rem; font-size: 0.36rem; border:0; line-height: 0.9rem; border-bottom:1px solid #e0e0e0; color:#a9a9a9; padding-left: 0.2rem;}
+		.password_icon{ display: inline-block;  float:left; background: url(image/password.png) no-repeat top left; background-size: 100% 100%; width:0.9rem; height:0.9rem;}
+		.password_input{ display: inline-block; float:left; outline:none; width:8rem; height:0.9rem; font-size: 0.36rem; border:0; line-height: 0.9rem; color:#a9a9a9; padding-left: 0.2rem;}
+		
+		.bind_button{ display: block; width:9rem; height:1.14rem; background: #0bd3a5; box-shadow: none; border-radius:0.02rem; margin:0 auto; font-size:0.46rem; color:#fff;} 
+		
+		.tips{margin: 0.85rem auto 0 auto; font-size:0.28rem; width:9rem; height: auto; line-height: 0.44rem; text-align: center; color: #848484;}
+	</style>
+</head>
+
+<body>
+	<header><img src="image/login.png" class="login_logo"/></header>
+	<section class="bind_content">
+		<div class="bind_usename clearfix">
+			<i class="usename_icon"></i>
+			<input placeholder="请输入你的手机号码" type="text" class="useinfo_input" id="username" />
+		</div>
+		<div class="bind_password clearfix">
+			<i class="password_icon"></i>
+			<input placeholder="输入密码" type="password" class="password_input" id="password" />
+		</div>
+	</section>
+	<section>
+		<input type="button" class="bind_button" value="绑&nbsp;&nbsp;&nbsp;定" onclick="bindUser();" />
+	</section>
+	<section class="tips">
+		<p>Tips:绑定之后，漫话与公众号的个人信息、购买记录等进行同步，同时，漫话的未接来电与消息提示将同步公众号推送。</p>
+	</section>
+</body>
+</html>

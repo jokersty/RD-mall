@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <title>RD商城</title>
+  <meta name="description" content="">
+  <meta name="keyword" content="">
+  <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    @media all and (min-width: 320px) {
+      html {
+        font-size: 10px !important;
+      }
+    }
+
+    @media all and (min-width: 360px) {
+      html {
+        font-size: 11.25px !important;
+      }
+    }
+
+    @media all and (min-width: 375px) {
+      html {
+        font-size: 11.7188px !important;
+      }
+    }
+
+    @media all and (min-width: 410px) {
+      html {
+        font-size: 12.9375px !important;
+      }
+    }
+
+    @media all and (min-width: 480px) {
+      html {
+        font-size: 15px !important;
+      }
+    }
+
+    body {
+      box-sizing: border-box;
+      padding-bottom: 1rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #f6f6f6;
+    }
+
+    .page-top {
+      background-color: #0bd3a6;
+      box-sizing: border-box;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      height: 44px;
+      line-height: 44px;
+    }
+
+    .logo {
+      display: inline-block;
+      max-width: 68%;
+      padding: 10px 0px;
+    }
+
+    .copyright {
+      width: 100%;
+      color: #9e9e9e;
+      position: absolute;
+      bottom: 50px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="page-top">
+  <h2>RD商城</h2>
+</div>
+<div style="text-align:center">
+  <div style="margin-top:10%;">
+    <img class="logo" src="./new_version.jpg"/>
+  </div>
+  <br>
+  <div style="font-size: 14px;line-height: 20px;">
+    漫话APP新版本已发布，更新如下：<br>
+    1.新版商城上线，订购更便捷；<br>
+    2.络漫宝配置与管理功能上线；<br>
+    3.更多的旅行产品及购物优惠。<br>
+  </div>
+  <br>
+  <div id="iOS_upgrade_tip" style="display: none;font-size: 16px;">请前往AppStore下载更新</div>
+  <div id="Android_upgrade_tip" style="display: none;font-size: 16px;">请点击左上角<img src="./nav_user_default.png" style="width: 20px;height: 20px;"/> > 关于 > 版本 下载更新</div>
+  <p class="copyright">*旧版商城即将下线，将无法使用，请及时更新，以免影响使用</p>
+</div>
+<script type="text/javascript">
+  var ua = window.navigator.userAgent.toLowerCase();
+  if (/\biPhone\b/i.test(ua) || /\bMac OS\b/i.test(ua)) {
+    document.getElementById('iOS_upgrade_tip').style.display = "inline";
+  } else if (/\bAndroid\b/i.test(ua)) {
+    document.getElementById('Android_upgrade_tip').style.display = "inline";
+  }
+</script>
+</body>
+
+</html>

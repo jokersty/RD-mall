@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>正在登录...</title>
+    <meta charset="utf-8">
+	<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+	<script type="text/javascript">
+		var search = window.location.search + '';
+		if (search.indexOf("state=STATE") > -1) {
+			// 回调页面
+			if (search.indexOf("code=") > -1) {
+			    var reg = /code=(.+)&state=(.+)$/;
+			    var result = search.match(reg);
+			    if (result != null) {
+			      var code = result[1];
+			      var state = result[2];
+			      localStorage.setItem("code", code);
+			      localStorage.setItem("state", state);
+			      window.location = "/wxmpmall/";
+			    } else {
+                    document.write("授权失败");
+				}
+			} else {
+                document.write("授权失败");
+			}
+		} else {
+            var redirectUri = encodeURIComponent(document.URL);
+			window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa02261a86e83d8d2&redirect_uri=" +redirectUri +
+					"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+		}
+
+	</script>
+</head>
+<body>
+</body>
+</html>
